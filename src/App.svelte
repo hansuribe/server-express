@@ -1,8 +1,14 @@
 <script>
 	import UserInput from "./components/UserInput.svelte";
 </script>
-<style></style>
+<style>
+	* {
+		font-family: 'Roboto', sans-serif;
+	}
+</style>
+
 <main>
 
-	<UserInput />
+	<UserInput class="forms" />
+
 </main>

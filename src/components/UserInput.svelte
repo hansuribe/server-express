@@ -19,24 +19,30 @@
 
 </script>
 
-<main class="container">
+<main class="container forms">
   <div class="row">
     <h1>Nedbetalings Kalkulator</h1>
   </div>
 
+
+
   <div class="row">
-    <label>Fyll ut ønsket beløp</label>
-    <div id="container" style="position: relative;">
-
-      <input bind:value={loanAmount} class="u-full-width" min="1" type="text">
-
-      <input style="z-index: 1;" bind:value={loanAmountWithSpacing} class="u-full-width" min="1" type="number">
+    <div class="columns six">
+      <label>Ønsket lånebeløp</label>
+      <input bind:value={loanAmount} class="u-full-width" type="range" min=1 max=1000000>
+    </div>
+    <div class="columns six">
+      <label>Lånesum</label>
+      <div id="container" style="position: relative;">
+        <input style="z-index: 1; font-size: 20px" bind:value={loanAmount} class="u-full-width" type="numeric"
+          step="100000" min=1}>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <div class="columns six">
-      <label>Nedbetalingstid</label>
+      <label>Nedbetalingstisd</label>
       <input bind:value={years} class="u-full-width" type="range" min=1 max=35>
     </div>
     <div class="columns six outputs">
@@ -82,9 +88,19 @@
 </main>
 
 <style>
+  .forms {
+
+    background: #f8f4e5;
+    padding: 50px 100px;
+    max-width: 50%;
+    border: 2px solid black;
+    box-shadow: 15px 15px 1px #ffa580, 15px 15px 1px 2px black;
+  }
+
+
+
   .outputs {
-    font-size: 20px;
-    margin-top: 15px;
+
     text-align: center;
     border: 1px solid;
     padding: 10px;
@@ -94,6 +110,11 @@
   .button {
     border: 3px solid;
     margin: 5px;
+  }
+
+  input[type=number]:focus {
+    background-color: #ffe0ba;
+
   }
 
   input[type=range] {
