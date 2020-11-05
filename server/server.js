@@ -8,7 +8,7 @@ app.use(cors());
 const port = process.env.PORT || '8080';
 API_URL = 'https://visningsrom.stacc.com/dd_server_laaneberegning/rest/laaneberegning/v1/nedbetalingsplan';
 
-app.listen(port, () => console.log(`Server is running on port ${port}`))
+app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 test = {
     "laanebelop": 500,
