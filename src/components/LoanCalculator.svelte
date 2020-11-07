@@ -1,6 +1,6 @@
 <script>
   //Downpayment plan API request:
-  import TestAPI from "./TestAPI.svelte";
+  import TestAPI from "./DownPaymentPlan.svelte";
 
   // Variables
   let years = 15;
@@ -57,14 +57,7 @@
       </div>
 
       <div class="columns six">
-        <label>
-          <input
-            bind:value={loanAmount}
-            class="u-full-width"
-            type="number"
-            step="50000"
-            min="1" />
-        </label>
+        <label />
         <div id="container" style="position: relative;" />
       </div>
     </div>
@@ -113,6 +106,10 @@
     </h4>
 
     <br />
-    <button class="">Vis Nedbetalingsplan</button>
+    <div class="sixteen columns">
+      <div class="four columns offset-by-fifteen">
+        <TestAPI />
+      </div>
+    </div>
   </div>
 </main>

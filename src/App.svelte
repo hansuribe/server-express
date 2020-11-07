@@ -1,6 +1,6 @@
 <script>
-	import UserInput from "./components/UserInput.svelte";
-	import TestAPI from "./components/TestAPI.svelte";
+	import LoanCalculator from "./components/LoanCalculator.svelte";
+	import DownPaymentPlan from "./components/DownPaymentPlan.svelte";
 </script>
 
 <style>
@@ -17,6 +17,5 @@
 
 <main>
 	<header class="topNav" />
-	<UserInput class="forms" />
-	<TestAPI />
+	<LoanCalculator class="forms" />
 </main>

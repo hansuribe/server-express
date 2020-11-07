@@ -1,7 +1,5 @@
 <script>
-    let foo = "baz";
-    let bar = "qux";
-    let result2 = null;
+    let result2 = "";
     const API_URL =
         "https://visningsrom.stacc.com/dd_server_laaneberegning/rest/laaneberegning/v1/nedbetalingsplan";
     const loanTest = {
@@ -39,9 +37,6 @@
 </script>
 
 <div>
-    <input bind:value={foo} />
-    <input bind:value={bar} />
-    <button type="button" on:click={doPost}> Post it. </button>
-    <p>Result:</p>
+    <button type="button" on:click={doPost}> Vis Nedbetalingsplan. </button>
     <pre> {result2} </pre>
 </div>
