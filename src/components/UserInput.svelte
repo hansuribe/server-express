@@ -1,10 +1,18 @@
 <script>
-  //Variables
+  //Downpayment plan API request:
+  import TestAPI from "./TestAPI.svelte";
+
+  // Variables
   let years = 15;
-  let loanAmount = 100000;
+  let loanAmount = 5500000;
   let interestRateInput = 250;
 
-  //Reactive Variables
+  // Makes large integers more readable by adding spacing between every 3d digit.
+  const formatPrettyNumber = (largeInteger) => {
+    return largeInteger.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  };
+
+  // Math: https://en.wikipedia.org/wiki/Amortizing_loan
   $: interestRate = interestRateInput / 100;
   $: totalPayments = years * 12;
   $: monthlyInterestRate = interestRate / 100 / 12;
@@ -16,10 +24,11 @@
   $: totalPaid = monthlyPayment * totalPayments;
   $: interestPaid = totalPaid - loanAmount;
 
-  //Returns readable large integers, e.g: 10000 -> "10 000"
-  const formatPrettyNumber = (largeInt) => {
-    return largeInt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-  };
+  //Make variables readable:
+  $: formattedTotalPaid = formatPrettyNumber(Math.ceil(totalPaid));
+  $: formattedMonthlyPaiment = formatPrettyNumber(Math.ceil(monthlyPayment));
+  $: formattedInterestPaid = formatPrettyNumber(Math.ceil(interestPaid));
+  $: formattedLoanAmout = formatPrettyNumber(Math.ceil(loanAmount));
 </script>
 
 <style>
@@ -37,16 +46,18 @@
 
     <div class="row">
       <div class="columns six">
-        <label>Ønsket lånebeløp
+        <label>Ønsket lånebeløp (NOK)
           <input
             bind:value={loanAmount}
             class="u-full-width"
             type="range"
-            min="1" />
+            min="1"
+            max="10000000" />
         </label>
       </div>
+
       <div class="columns six">
-        <label>Lånesum
+        <label>
           <input
             bind:value={loanAmount}
             class="u-full-width"
@@ -61,8 +72,7 @@
     <div class="row">
       <div class="columns six ">
         <label>Nedbetalingstid
-          <div style="position: absolute;
-    left: 35px;" /><input
+          <input
             bind:value={years}
             class="u-full-width"
             type="range"
@@ -88,30 +98,20 @@
       <div class="columns six outputs"><b>{interestRate} %</b></div>
     </div>
 
+    <br />
     <h2>Oversikt</h2>
-    <div class="row outputs" style="margin: 5px">
-      <div class="columns">
-        Total Kostnad:
-        {formatPrettyNumber(Math.round((totalPaid + Number.EPSILON) * 100) / 100)}
-        kr
-      </div>
-    </div>
+    <h4>
+      Ved å betale
+      <b>{formattedMonthlyPaiment}</b>
+      kr hver måned vil du få et lån på
+      <b>{formattedLoanAmout}</b>
+      kr. Total kostnad for dette lånet blir på
+      <b>{formattedInterestPaid}</b>
+      kr over
+      <b>{years}</b>
+      år.
+    </h4>
 
-    <div class="row outputs" style="margin: 5px">
-      <div class="columns ">
-        Terminbeløp:
-        {formatPrettyNumber(Math.round((monthlyPayment + Number.EPSILON) * 100) / 100)}
-        kr
-      </div>
-    </div>
-
-    <div class="row outputs" style="margin: 5px">
-      <div class="columns ">
-        Renter:
-        {formatPrettyNumber(Math.round((interestPaid + Number.EPSILON) * 100) / 100)}
-        kr
-      </div>
-    </div>
     <br />
     <button class="">Vis Nedbetalingsplan</button>
   </div>

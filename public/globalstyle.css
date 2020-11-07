@@ -1,10 +1,13 @@
+	html{
+		background: rgb(209,210,194);
+	}
+
 
 .forms {
-    background: #f5f8e5;
+    background: rgb(251,251,249);
     padding: 25px 50px;
     max-width: 50%;
-    border: 2px solid black;
-    box-shadow: 7px 6px 11px #000000;
+
 }
 
   .section{
@@ -12,8 +15,6 @@
   }
 
   .outputs {
-    text-align: center;
-    border: 1px solid;
     padding: 10px;
   }
 
@@ -23,11 +24,21 @@
   }
 
   input[type="number"]:focus {
-    background-color: #ffe0ba;
+    background-color: #f0f8ff00;
+    border: none;
+    font-family: "Work Sans", sans-serif;
+    font-size: 110%;
+    width: 50%;
+    font-weight: bold;
   }
 
-  input[type="numer"]{
-    background-color: #f8f4e5;
+  input[type="number"]{
+    background-color: #f0f8ff00;
+    border: none;
+    font-family: "Work Sans", sans-serif;
+    font-size: 110%;
+    width: 50%;
+    font-weight: bold;
   }
 
   input[type="range"] {
