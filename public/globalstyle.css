@@ -1,5 +1,5 @@
 	html{
-		background: rgb(209,210,194);
+		background: rgb(209,210,194 / 0%);
   }
   
   	body {
@@ -28,20 +28,17 @@
   }
 
   input[type="number"]:focus {
-    background-color: #f0f8ff00;
-    border: none;
-    font-family: "Work Sans", sans-serif;
-    font-size: 110%;
-    width: 50%;
-    font-weight: bold;
+   border: none;
   }
 
   input[type="number"]{
+    /* width: 37%; */
+    text-align: right;
     background-color: #f0f8ff00;
     border: none;
     font-family: "Work Sans", sans-serif;
-    font-size: 110%;
-    width: 50%;
+    width: 123%;
+    width: 65%;
     font-weight: bold;
   }
 
@@ -137,3 +134,7 @@
 		  background: rgb(251,251,249);
     }
   }
+
+.columns{
+  margin-left: 0%;
+}
