@@ -1,6 +1,5 @@
 <script>
 	import LoanCalculator from "./components/LoanCalculator.svelte";
-	import DownPaymentPlan from "./components/DownPaymentPlan.svelte";
 </script>
 
 <style>
@@ -10,7 +9,8 @@
 
 	.topNav {
 		height: 5rem;
-
+		background: rgb(223, 238, 243 / 0%);
+		margin-bottom: 3rem;
 		width: 100%;
 	}
 </style>

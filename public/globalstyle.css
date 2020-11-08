@@ -1,12 +1,16 @@
 	html{
 		background: rgb(209,210,194);
+  }
+  
+  	body {
+		margin: 0px;
 	}
 
 
 .forms {
     background: rgb(251,251,249);
     padding: 25px 50px;
-    max-width: 50%;
+    max-width: 69%;
 
 }
 
@@ -127,5 +131,9 @@
     @media only screen and (max-width: 1111px) {
     .forms {
       max-width: 100%;
+    }
+
+    html{
+		  background: rgb(251,251,249);
     }
   }

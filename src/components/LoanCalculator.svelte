@@ -1,6 +1,6 @@
 <script>
   //Downpayment plan API request:
-  import TestAPI from "./DownPaymentPlan.svelte";
+  import DownPaymentTable from "./DownPaymentPlan.svelte";
 
   // Variables
   let years = 15;
@@ -55,11 +55,6 @@
             max="10000000" />
         </label>
       </div>
-
-      <div class="columns six">
-        <label />
-        <div id="container" style="position: relative;" />
-      </div>
     </div>
 
     <div class="row">
@@ -96,20 +91,18 @@
     <h4>
       Ved å betale
       <b>{formattedMonthlyPaiment}</b>
-      kr hver måned vil du få et lån på
+      kr i måneden, over
+      <b>{years}</b>
+      år, vil du få et lån på
       <b>{formattedLoanAmout}</b>
       kr. Total kostnad for dette lånet blir på
       <b>{formattedInterestPaid}</b>
-      kr over
-      <b>{years}</b>
-      år.
+      kr
     </h4>
 
     <br />
     <div class="sixteen columns">
-      <div class="four columns offset-by-fifteen">
-        <TestAPI />
-      </div>
+      <DownPaymentTable {loanAmount} {interestRate} {years} />
     </div>
   </div>
 </main>
