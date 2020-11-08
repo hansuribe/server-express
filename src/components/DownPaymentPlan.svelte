@@ -2,6 +2,7 @@
     import Table from "./Table.svelte";
 
     let showTable = false;
+    let loading = false;
 
     let downpaymentPlan = "";
     const API_URL =
@@ -68,9 +69,8 @@
     };
 
     async function postLoan() {
-        showTable = showTable ? false : true;
-
-        if (showTable) {
+        if (!showTable) {
+            loading = true;
             const myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
             let raw = JSON.stringify({
@@ -82,7 +82,6 @@
                 datoForsteInnbetaling: getTodaysDateString(0, 1),
                 ukjentVerdi: "TERMINBELOP",
             });
-            console.log(JSON.parse(raw));
 
             let requestOptions = {
                 method: "POST",
@@ -93,9 +92,12 @@
 
             fetch(API_URL, requestOptions)
                 .then((response) => response.text())
-                .then((result) => (downpaymentPlan = result))
-                .then((result) => console.log(JSON.parse(result)))
+                .then((result) => (downpaymentPlan = JSON.parse(result)))
+                .then(() => console.log(downpaymentPlan))
+                .then(() => ((showTable = true), (loading = false)))
                 .catch((error) => console.log("error", error));
+        } else {
+            showTable = false;
         }
     }
 </script>
@@ -105,7 +107,8 @@
         {showTable ? 'Skjul Nedbetalingsplan' : 'Vis Nedbetalingsplan'}
     </button>
 
+    {#if loading}<br />Henter nedbetalingsplan..{/if}
     {#if showTable}
-        <Table />
+        <Table paymentObjects={downpaymentPlan} />
     {/if}
 </div>

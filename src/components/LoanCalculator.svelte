@@ -40,7 +40,9 @@
       <h2>Nedbetalings <b>Kalkulator</b></h2>
       <p>
         Med nedbetalings kalkulatoren kan du enkelt beregne kostnadene for ditt
-        lån, og lagre din egen nedbetalingsplan.
+        lån, og få en oversikt over nedbetalingsplanen. Faktiske lånekostnader
+        kan avvike noe fra beregningen og er avhengig av blandt annet
+        betalingsevne og sikkerhet.
       </p>
     </div>
 
